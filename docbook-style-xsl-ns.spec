@@ -22,6 +22,8 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Source0:	http://prdownloads.sourceforge.net/docbook/docbook-xsl-ns-%{version}.tar.bz2
 
 BuildArch:	noarch
+Obsoletes:	docbook5-style-xsl
+Provides:	docbook5-style-xsl
 
 %define sgmlbase %{_datadir}/sgml/
 

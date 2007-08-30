@@ -1,5 +1,5 @@
-%define Name docbook5-style-xsl
-%define version 1.72.0
+%define Name docbook-style-xsl-ns
+%define version 1.73.2
 %define Release %mkrel 1
 
 Name:		%{Name}
@@ -19,8 +19,7 @@ Requires(pre):	sgml-common >= 0.6.3-2mdk
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot 
 
-Source0:	http://prdownloads.sourceforge.net/docbook/docbook5-xsl-%{version}.tar.bz2
-%define Release 1mdk
+Source0:	http://prdownloads.sourceforge.net/docbook/docbook-xsl-ns-%{version}.tar.bz2
 
 BuildArch:	noarch
 
@@ -35,7 +34,7 @@ the stylesheets namespace aware for the first time for DocBook 5 (RNG based).
 For production use please install docbook-style-xsl instead.
 
 %prep
-%setup -n docbook5-xsl-%{version} -q
+%setup -n docbook-xsl-ns-%{version} -q
 
 %build
 # index jar files to please rpmlint
@@ -54,8 +53,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr (-,root,root)
-%doc BUGS TODO README VERSION NEWS* COPYING RELEASE* INSTALL ChangeHistory.xml.zip
+%doc BUGS TODO README VERSION NEWS* COPYING RELEASE* INSTALL
 %{sgmlbase}/docbook/xsl-stylesheets-db5-%{version}
-
-
-

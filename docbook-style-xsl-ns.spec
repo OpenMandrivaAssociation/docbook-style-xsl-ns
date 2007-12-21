@@ -17,6 +17,7 @@ Requires:	docbook-dtd-xml
 Requires(pre):	sgml-common >= 0.6.3-2mdk
 # BuildRequires:	gcj-tools
 
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot 
 
 Source0:	http://prdownloads.sourceforge.net/docbook/docbook-xsl-ns-%{version}.tar.bz2
 

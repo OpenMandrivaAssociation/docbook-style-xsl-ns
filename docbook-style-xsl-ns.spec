@@ -1,6 +1,6 @@
 %define Name docbook-style-xsl-ns
 %define version 1.73.2
-%define Release %mkrel 1
+%define Release %mkrel 3
 
 Name:		%{Name}
 Version:	%{version}

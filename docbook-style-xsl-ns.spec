@@ -4,7 +4,7 @@
 
 Name:		%{Name}
 Version:	%{version}
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		Publishing
 
 Summary:	Norman Walsh's modular stylesheets for DocBook5

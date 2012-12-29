@@ -1,10 +1,8 @@
 %define Name docbook-style-xsl-ns
-%define version 1.75.2
-%define Release %mkrel 3
 
 Name:		%{Name}
-Version:	%{version}
-Release:	%mkrel 2
+Version:	1.78.0
+Release:	1
 Group:		Publishing
 
 Summary:	Norman Walsh's modular stylesheets for DocBook5
@@ -17,9 +15,7 @@ Requires:	docbook-dtd-xml
 Requires(pre):	sgml-common >= 0.6.3-2mdk
 # BuildRequires:	gcj-tools
 
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot 
-
-Source0:	http://prdownloads.sourceforge.net/docbook/docbook-xsl-ns-%{version}.tar.bz2
+Source0:	https://sourceforge.net/projects/docbook/files/docbook-xsl-ns/1.78.0/docbook-xsl-ns-%{version}.tar.bz2
 
 BuildArch:	noarch
 Obsoletes:	docbook5-style-xsl
@@ -44,13 +40,9 @@ For production use please install docbook-style-xsl instead.
 
 %install
 TARGET=%{sgmlbase}/docbook/xsl-stylesheets-db5-%{version}
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT$TARGET
+mkdir -p %{buildroot}$TARGET
 # Camille 2007-01-23: "slides website roundtrip" XSL not available in this DB5 release
-cp -a VERSION common eclipse extensions fo highlighting html htmlhelp images javahelp lib template xhtml manpages profiling params tools $RPM_BUILD_ROOT$TARGET
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+cp -a VERSION common eclipse extensions fo highlighting html htmlhelp images javahelp lib template xhtml manpages profiling params tools %{buildroot}$TARGET
 
 
 %files
@@ -91,4 +83,5 @@ rm -rf $RPM_BUILD_ROOT
 
 * Wed Jan 24 2007 Camille Begnis <camille@mandriva.com> 1.72.0-1mdv2007.1
 - Esperimental stylesheet release for native (namespaced) DocBook5 support
+
 

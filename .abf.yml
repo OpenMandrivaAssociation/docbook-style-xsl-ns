@@ -1,4 +1,5 @@
 removed_sources:
   docbook-xsl-ns-1.75.2.tar.bz2: c3878afb9c1ebba94647b9d1f6d19d38885d2186
-sources:
   docbook-xsl-ns-1.78.0.tar.bz2: 377c7bc16af6779c827ac9e818b0f665c7a038f2
+sources:
+  docbook-xsl-ns-1.78.1.tar.bz2: 6a0823039b22ae0e0e9bc5ecc0dc325acdc3218f

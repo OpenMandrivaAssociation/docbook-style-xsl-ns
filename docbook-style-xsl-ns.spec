@@ -1,7 +1,7 @@
 %define Name docbook-style-xsl-ns
 
 Name:		%{Name}
-Version:	1.78.0
+Version:	1.78.1
 Release:	1
 Group:		Publishing
 
@@ -15,7 +15,7 @@ Requires:	docbook-dtd-xml
 Requires(pre):	sgml-common >= 0.6.3-2mdk
 # BuildRequires:	gcj-tools
 
-Source0:	https://sourceforge.net/projects/docbook/files/docbook-xsl-ns/1.78.0/docbook-xsl-ns-%{version}.tar.bz2
+Source0:	https://sourceforge.net/projects/docbook/files/docbook-xsl-ns/1.78.1/docbook-xsl-ns-%{version}.tar.bz2
 
 BuildArch:	noarch
 Obsoletes:	docbook5-style-xsl
@@ -83,5 +83,6 @@ cp -a VERSION common eclipse extensions fo highlighting html htmlhelp images jav
 
 * Wed Jan 24 2007 Camille Begnis <camille@mandriva.com> 1.72.0-1mdv2007.1
 - Esperimental stylesheet release for native (namespaced) DocBook5 support
+
 
 

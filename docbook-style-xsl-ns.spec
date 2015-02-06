@@ -2,7 +2,7 @@
 
 Name:		%{Name}
 Version:	1.78.1
-Release:	1
+Release:	2
 Group:		Publishing
 
 Summary:	Norman Walsh's modular stylesheets for DocBook5

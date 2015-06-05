@@ -2,7 +2,7 @@
 
 Name:		%{Name}
 Version:	1.78.1
-Release:	2
+Release:	3
 Group:		Publishing
 
 Summary:	Norman Walsh's modular stylesheets for DocBook5
@@ -44,43 +44,5 @@ cp -a VERSION common eclipse extensions fo highlighting html htmlhelp images jav
 
 
 %files
-%defattr (-,root,root)
 %doc BUGS TODO README VERSION NEWS* COPYING RELEASE* INSTALL
 %{sgmlbase}/docbook/xsl-stylesheets-db5-%{version}
-
-
-%changelog
-* Thu Dec 09 2010 Oden Eriksson <oeriksson@mandriva.com> 1.75.2-2mdv2011.0
-+ Revision: 617867
-- the mass rebuild of 2010.0 packages
-
-* Mon Aug 17 2009 Frederik Himpe <fhimpe@mandriva.org> 1.75.2-1mdv2010.0
-+ Revision: 417410
-- Use %%mkrel
-- update to new version 1.75.2
-
-* Tue Jul 22 2008 Thierry Vignaud <tv@mandriva.org> 1.73.2-3mdv2009.0
-+ Revision: 240632
-- rebuild
-- kill re-definition of %%buildroot on Pixel's request
-
-  + Olivier Blin <oblin@mandriva.com>
-    - restore BuildRoot
-
-* Fri Aug 31 2007 Funda Wang <fwang@mandriva.org> 1.73.2-1mdv2008.0
-+ Revision: 76413
-- Obsoletes old name
-- New versino 1.73.2
-- docbook5-xsl renamed to docbook-style-ns
-
-
-* Wed Jan 24 2007 Camille Bégnis <camille@mandriva.com> 1.72.0-1mdv2007.0
-+ Revision: 112876
-- simplify spec
-- Import docbook5-style-xsl
-
-* Wed Jan 24 2007 Camille Begnis <camille@mandriva.com> 1.72.0-1mdv2007.1
-- Esperimental stylesheet release for native (namespaced) DocBook5 support
-
-
-

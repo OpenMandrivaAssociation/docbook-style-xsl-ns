@@ -2,15 +2,14 @@
 
 Name:		%{Name}
 Version:	1.79.1
-Release:	1
+Release:	2
 Group:		Publishing
 Summary:	Norman Walsh's modular stylesheets for DocBook5
 License:	Artistic style
 URL:		http://sourceforge.net/projects/docbook
-Provides:	docbook-xsl = %{version}
+Provides:	docbook-xsl-ns = %{version}
 Requires:	docbook-dtd-xml
 Requires(pre):	sgml-common >= 0.6.3-2mdk
-# BuildRequires:	gcj-tools
 Source0:	https://sourceforge.net/projects/docbook/files/docbook-xsl-ns/1.79.1/docbook-xsl-ns-%{version}.tar.bz2
 BuildArch:	noarch
 %rename		docbook5-style-xsl
@@ -33,11 +32,34 @@ For production use please install docbook-style-xsl instead.
 # jar -i extensions/*.jar
 
 %install
-TARGET=%{sgmlbase}/docbook/xsl-stylesheets-db5-%{version}
+TARGET=%{sgmlbase}/docbook/xsl-ns-stylesheets-%{version}
 mkdir -p %{buildroot}$TARGET
 # Camille 2007-01-23: "slides website roundtrip" XSL not available in this DB5 release
 cp -a VERSION common eclipse extensions fo highlighting html htmlhelp images javahelp lib template xhtml manpages profiling params tools %{buildroot}$TARGET
 
+%post
+CATALOG=/etc/xml/catalog
+%{_bindir}/xmlcatalog --noout --add "rewriteSystem" \
+	"http://docbook.sourceforge.net/release/xsl-ns-%{version}" \
+	"file:///usr/share/sgml/docbook/xsl-ns-stylesheets-%{version}" $CATALOG
+%{_bindir}/xmlcatalog --noout --add "rewriteURI" \
+	"http://docbook.sourceforge.net/release/xsl-ns-%{version}" \
+	"file:///usr/share/sgml/docbook/xsl-ns-stylesheets-%{version}" $CATALOG
+%{_bindir}/xmlcatalog --noout --add "rewriteSystem" \
+	"http://docbook.sourceforge.net/release/xsl-ns/current" \
+	"file:///usr/share/sgml/docbook/xsl-ns-stylesheets-%{version}" $CATALOG
+%{_bindir}/xmlcatalog --noout --add "rewriteURI" \
+	"http://docbook.sourceforge.net/release/xsl-ns/current" \
+	"file:///usr/share/sgml/docbook/xsl-ns-stylesheets-%{version}" $CATALOG
+
+%postun
+# do not remove on upgrade
+CATALOG=/etc/xml/catalog
+if [ "$1" = "0" -a -x %{_bindir}/xmlcatalog -a -f $CATALOG ]; then
+  %{_bindir}/xmlcatalog --noout --del \
+	"file:///usr/share/sgml/docbook/xsl-ns-stylesheets-%{version}" $CATALOG
+fi
+
 %files
 %doc BUGS TODO README VERSION NEWS* COPYING RELEASE* INSTALL
-%{sgmlbase}/docbook/xsl-stylesheets-db5-%{version}
+%{sgmlbase}/docbook/xsl-ns-stylesheets-%{version}

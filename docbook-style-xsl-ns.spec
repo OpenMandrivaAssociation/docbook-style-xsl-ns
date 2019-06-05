@@ -2,7 +2,7 @@
 
 Name:		%{Name}
 Version:	1.79.1
-Release:	2
+Release:	3
 Group:		Publishing
 Summary:	Norman Walsh's modular stylesheets for DocBook5
 License:	Artistic style
@@ -36,14 +36,18 @@ TARGET=%{sgmlbase}/docbook/xsl-ns-stylesheets-%{version}
 mkdir -p %{buildroot}$TARGET
 # Camille 2007-01-23: "slides website roundtrip" XSL not available in this DB5 release
 cp -a VERSION common eclipse extensions fo highlighting html htmlhelp images javahelp lib template xhtml manpages profiling params tools %{buildroot}$TARGET
+ln -s VERSION %{buildroot}$TARGET/VERSION.xsl
+
+ln -s xsl-ns-stylesheets-%{version} \
+%{buildroot}/%{sgmlbase}/docbook/xsl-ns-stylesheets
 
 %post
 CATALOG=/etc/xml/catalog
 %{_bindir}/xmlcatalog --noout --add "rewriteSystem" \
-	"http://docbook.sourceforge.net/release/xsl-ns-%{version}" \
+	"http://docbook.sourceforge.net/release/xsl-ns/%{version}" \
 	"file:///usr/share/sgml/docbook/xsl-ns-stylesheets-%{version}" $CATALOG
 %{_bindir}/xmlcatalog --noout --add "rewriteURI" \
-	"http://docbook.sourceforge.net/release/xsl-ns-%{version}" \
+	"http://docbook.sourceforge.net/release/xsl-ns/%{version}" \
 	"file:///usr/share/sgml/docbook/xsl-ns-stylesheets-%{version}" $CATALOG
 %{_bindir}/xmlcatalog --noout --add "rewriteSystem" \
 	"http://docbook.sourceforge.net/release/xsl-ns/current" \
@@ -63,3 +67,4 @@ fi
 %files
 %doc BUGS TODO README VERSION NEWS* COPYING RELEASE* INSTALL
 %{sgmlbase}/docbook/xsl-ns-stylesheets-%{version}
+%{sgmlbase}/docbook/xsl-ns-stylesheets

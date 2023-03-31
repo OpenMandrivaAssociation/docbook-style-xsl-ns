@@ -2,7 +2,7 @@
 
 Name:		%{Name}
 Version:	1.79.1
-Release:	4
+Release:	5
 Group:		Publishing
 Summary:	Norman Walsh's modular stylesheets for DocBook5
 License:	Artistic style

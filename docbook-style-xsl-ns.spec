@@ -6,7 +6,7 @@ Release:	5
 Group:		Publishing
 Summary:	Norman Walsh's modular stylesheets for DocBook5
 License:	Artistic style
-URL:		http://sourceforge.net/projects/docbook
+URL:		https://sourceforge.net/projects/docbook
 Provides:	docbook-xsl-ns = %{version}
 Requires:	docbook-dtd-xml
 Requires(pre):	sgml-common >= 0.6.3-2mdk
